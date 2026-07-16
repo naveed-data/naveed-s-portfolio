@@ -9,7 +9,14 @@
 ![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-NAVIQ is an agentic AI portfolio site. Instead of a static resume, visitors chat with a supervisor agent that calls specialized sub-agents to answer questions about my experience, projects, skills, and even how the portfolio itself is built.
+NAVIQ is an agentic AI portfolio site. Instead of a static resume, visitors chat with a **Supervisor Agent** that routes each question to specialized **sub-agents**:
+
+- **Supervisor Agent** — reads the question, decides which specialists to call, assembles the final answer
+- **Resume Agent** — verified work history & education
+- **Project Agent** — case studies: problem, architecture, impact, metrics
+- **Skills Agent** — technical skill inventory, grouped by category
+- **Architecture Agent** — explains how NAVIQ itself is built
+- **Contact Agent** — verified contact details & hand-off to a human
 
 **Live site:** https://naveed-portfolio-ashen-two.vercel.app
 
@@ -21,15 +28,6 @@ A visitor's question hits a Next.js route handler (`src/app/api/chat/route.ts`),
 2. **Sub-agents** (via function-calling) fetch grounded data — no hallucinated resume facts
 3. Tool results are appended back into the conversation
 4. The model streams a grounded response token-by-token as NDJSON, rendered live in the chat UI
-
-| Agent | Owns |
-| --- | --- |
-| **Supervisor** | Reads the question, routes to specialists, assembles the final answer |
-| **Resume** | Verified work history & education — dates, companies, degrees |
-| **Project** | Case studies — problem, architecture, impact, metrics |
-| **Skills** | Technical skill inventory, grouped by category |
-| **Architecture** | Explains how NAVIQ itself is built (this README's content, live) |
-| **Contact** | Verified contact details & hand-off to a human conversation |
 
 All resume/project/skill data lives in `src/lib/data.ts`, and the tool definitions live in `src/lib/agent-tools.ts` — the agent can only answer with what's actually there.
 
