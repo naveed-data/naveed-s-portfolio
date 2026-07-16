@@ -311,7 +311,7 @@ export const ChatAgent = forwardRef<ChatAgentHandle>(function ChatAgent(_props, 
                 value={heroInput}
                 onChange={(e) => setHeroInput(e.target.value)}
                 placeholder="Ask me anything..."
-                className="w-full rounded-full border border-white/40 bg-white/70 py-3.5 pl-5 pr-14 text-sm text-zinc-900 placeholder:text-zinc-400 backdrop-blur-xl transition-all duration-300 focus:border-violet-300/60 focus:bg-white/90 focus:shadow-[0_0_0_4px_rgba(139,92,246,0.15),0_0_30px_-4px_rgba(139,92,246,0.35)] focus:outline-none dark:border-white/10 dark:bg-zinc-950/60 dark:text-white dark:placeholder:text-zinc-500 dark:focus:border-violet-500/40 dark:focus:bg-zinc-950/80"
+                className="w-full rounded-full border border-white/40 bg-white/70 py-3 pl-5 pr-14 text-sm text-zinc-900 placeholder:text-zinc-400 backdrop-blur-xl transition-all duration-300 focus:border-violet-300/60 focus:bg-white/90 focus:shadow-[0_0_0_4px_rgba(139,92,246,0.15),0_0_30px_-4px_rgba(139,92,246,0.35)] focus:outline-none dark:border-white/10 dark:bg-zinc-950/60 dark:text-white dark:placeholder:text-zinc-500 dark:focus:border-violet-500/40 dark:focus:bg-zinc-950/80"
               />
               <motion.button
                 type="submit"
@@ -327,7 +327,7 @@ export const ChatAgent = forwardRef<ChatAgentHandle>(function ChatAgent(_props, 
             </motion.form>
 
             <motion.div
-              className="mt-4 flex flex-wrap items-center justify-center gap-2"
+              className="mt-2.5 flex flex-wrap items-center justify-center gap-2"
               initial="hidden"
               animate="visible"
               variants={{
@@ -355,7 +355,7 @@ export const ChatAgent = forwardRef<ChatAgentHandle>(function ChatAgent(_props, 
                 </motion.button>
               ))}
             </motion.div>
-            <p className="mt-3 text-center text-xs text-zinc-400 dark:text-zinc-600">
+            <p className="mt-2 text-center text-xs text-zinc-400 dark:text-zinc-600">
               ⚡ Tool-calling agent · grounded in real resume data · powered by Groq
             </p>
           </>

@@ -17,7 +17,7 @@ export function AiStatusPanel() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 26 }}
-      className="relative mt-10 w-full max-w-3xl overflow-hidden rounded-full border border-white/30 bg-white/60 px-5 py-3 shadow-[0_8px_30px_-12px_rgba(139,92,246,0.3)] backdrop-blur-2xl dark:border-white/10 dark:bg-zinc-950/50"
+      className="relative w-full max-w-3xl overflow-hidden rounded-full border border-white/30 bg-white/60 px-5 py-3 shadow-[0_8px_30px_-12px_rgba(139,92,246,0.3)] backdrop-blur-2xl dark:border-white/10 dark:bg-zinc-950/50"
     >
       <div
         aria-hidden
