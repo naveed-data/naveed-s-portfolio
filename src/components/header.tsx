@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Download, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { nav, product, profile } from "@/lib/data";
 import type { SectionKey } from "@/lib/sections";
 import { ThemeToggle } from "./theme-toggle";
@@ -73,13 +72,6 @@ export function Header({ onNavigate }: { onNavigate: (key: SectionKey) => void }
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <Link
-            href="/resume"
-            className="hidden items-center gap-1.5 rounded-full border border-zinc-200/80 px-3.5 py-1.5 text-sm font-medium text-zinc-600 transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-sm dark:border-white/10 dark:text-zinc-400 dark:hover:border-white/20 dark:hover:bg-white/5 lg:inline-flex"
-          >
-            <Download className="h-3.5 w-3.5" />
-            Resume
-          </Link>
           <ThemeToggle />
           <motion.button
             type="button"
@@ -131,13 +123,6 @@ export function Header({ onNavigate }: { onNavigate: (key: SectionKey) => void }
             >
               GitHub
             </a>
-            <Link
-              href="/resume"
-              onClick={() => setOpen(false)}
-              className="rounded-2xl px-3 py-2.5 text-left text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-white/10"
-            >
-              Download Resume
-            </Link>
           </motion.nav>
         )}
       </AnimatePresence>
