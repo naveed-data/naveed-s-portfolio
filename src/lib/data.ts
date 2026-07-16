@@ -220,9 +220,10 @@ export const projects = [
 ];
 
 export const nav = [
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
   { label: "Architecture", href: "#architecture" },
+  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 

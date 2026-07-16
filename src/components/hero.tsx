@@ -228,7 +228,7 @@ export function Hero({ onNavigate }: { onNavigate: (key: SectionKey) => void }) 
                     aria-hidden
                     className="pointer-events-none absolute inset-x-0 top-0 h-1/2 rounded-t-full bg-gradient-to-b from-white/25 to-transparent"
                   />
-                  🚀 Start Conversation
+                  Start Conversation
                 </motion.button>
                 <motion.button
                   type="button"
@@ -239,7 +239,7 @@ export function Hero({ onNavigate }: { onNavigate: (key: SectionKey) => void }) 
                   transition={{ type: "spring", stiffness: 400, damping: 22 }}
                   className="relative isolate overflow-hidden rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-zinc-700 backdrop-blur-md transition-colors hover:bg-white/20 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10"
                 >
-                  📂 Explore Projects
+                  Explore Projects
                 </motion.button>
               </motion.div>
 
