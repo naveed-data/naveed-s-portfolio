@@ -20,6 +20,14 @@ NAVIQ is an agentic AI portfolio site. Instead of a static resume, visitors chat
 
 **Live site:** https://naveed-portfolio-ashen-two.vercel.app
 
+## Highlights
+
+- Built **NAVIQ**, an interactive AI Engineering Operating System that lets recruiters explore projects, architecture, and engineering decisions through natural language conversation instead of a traditional portfolio.
+- Engineered a **Supervisor Agent** architecture that routes each question to specialized sub-agents — Resume, Project, Skills, Architecture, and Contact — via Groq function-calling.
+- Grounded every response in a single source-of-truth data layer (`src/lib/data.ts`) through tool-calling, so the agent can only answer with verified facts — no hallucinated resume claims.
+- Built streaming AI responses, trimmed conversational memory, and a stage-by-stage reasoning UI using **Next.js**, **TypeScript**, and **Groq** (`openai/gpt-oss-20b`) for a production-style AI experience.
+- **Live Demo:** https://naveed-portfolio-ashen-two.vercel.app
+
 ## How it works
 
 A visitor's question hits a Next.js route handler (`src/app/api/chat/route.ts`), which runs it through a tool-calling agent loop on Groq (`openai/gpt-oss-20b`):
@@ -30,6 +38,29 @@ A visitor's question hits a Next.js route handler (`src/app/api/chat/route.ts`),
 4. The model streams a grounded response token-by-token as NDJSON, rendered live in the chat UI
 
 All resume/project/skill data lives in `src/lib/data.ts`, and the tool definitions live in `src/lib/agent-tools.ts` — the agent can only answer with what's actually there.
+
+### Architecture
+
+```
+NAVIQ
+
+Frontend (Next.js)
+        │
+Next.js Route Handler (/api/chat)
+        │
+Supervisor Agent (Groq tool-calling loop)
+        │
+   ┌────┴────┬─────────┬──────────────┬─────────┐
+Resume    Project    Skills     Architecture   Contact
+Agent     Agent      Agent         Agent        Agent
+   └────┬────┴─────────┴──────────────┴─────────┘
+        │
+Source of Truth (src/lib/data.ts)
+        │
+Groq API (LLM inference provider)
+        │
+openai/gpt-oss-20b
+```
 
 ## Tech stack
 
@@ -46,7 +77,7 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Framer M
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
 ![Groq](https://img.shields.io/badge/Groq-F55036?style=flat-square&logo=groq&logoColor=white)
 
-Next.js Route Handlers · Node.js streaming (`ReadableStream`) · Groq (`openai/gpt-oss-20b`) · tool-calling / function-calling agent loop · NDJSON streaming protocol
+Next.js Route Handlers · Node.js streaming (`ReadableStream`) · **Groq** (LLM inference provider, model: `openai/gpt-oss-20b`) — the `groq-sdk` is called directly, no LangChain/LangGraph orchestration layer · tool-calling / function-calling agent loop · NDJSON streaming protocol
 
 ### Deployment
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
